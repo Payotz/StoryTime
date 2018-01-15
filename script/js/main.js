@@ -47,6 +47,7 @@ canvas.onmousedown = function(event){
   if(card_list[0].contains(loc.x,loc.y)){
     card_list[0].dragged = true;
   }
+  send("Hello World")
 }
 
 canvas.onmouseup = function(event){
@@ -61,31 +62,13 @@ canvas.onmouseup = function(event){
         card_list[0].set = true
       }
   }
-  card_list[0].dragged = false;
-  
-}
-function showOffer(){
-    window.alert("Copy and paste this invitation text and send to a friend : \n" + JSON.stringify(pc.localDescription))
-    setAnswer()
-}
-function showAnswer(answer)
-  window.alert("Copy and paste this answer text and send to a friend : \n" + JSON.stringify(answer))
-
-function getAnswer(){
-  var data = window.prompt("Please enter the answer text below : ")
-  return JSON.parse(data)
+  card_list[0].dragged = false; 
 }
 
-window.onload = function(){
-  if(window.confirm("Do you want to host? ")){
-    host()
+window.onload =(function(){
+  if(window.confirm("Do you want to Host?")){
+    initializeHost()
   }else{
-    var id = window.prompt("Please enter an invitation text below: ")
-    if(id == null || id == " "){
-      window.alert("Invalid invitation link. Reloading")
-      location.reload()
-    }else{
-      window.alert("Connecting")
-    }
+    initializeMember(window.prompt("Insert invitation link here : "))
   }
-}
+});
