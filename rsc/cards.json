@@ -1,0 +1,37 @@
+{
+    "Story_Card" : [
+        {
+            "name" : "Sword",
+            "description" : "A sword for the hero to use!",
+            "img_path" : "rsc/sword.jpg"
+        },
+        {
+            "name" : "Shield",
+            "description" : "A shield to defend the hero!",
+            "img_path" : "rsc/shield.jpg"
+        },
+        {
+            "name" : "Armor",
+            "description" : "Armor to protect the hero!",
+            "img_path" : "rsc/sword.jpg"
+        }
+    ],
+    "Ending_Card" : {
+        "Mario_End1":{
+            "name" : "Mario_End1",
+            "description" : "Sorry! The princess is in another castle!",
+            "img_path" : "rsc/card/ending.jpg"
+        },
+        "Dragon_Slain":{
+            "name" : "Dragon_Slain",
+            "description" : "And so the dragon was slain! The princess is saved!",
+            "img_path" : "rsc/card/ending.jpg"
+        },
+        "Happy_Ever_After":{
+            "name":"Happy_Ever_After",
+            "description" : "And so they lived Happily ever after",
+            "img_path" : "rsc/card/ending.jpg"
+        }
+    }
+    
+}
