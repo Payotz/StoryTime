@@ -14,8 +14,12 @@ function initializeHost(){
 pc.onsignalingstatechange = function(event){
     if(pc.connectionState == "connected"){
         console.log("Fully connected")
+        console.log("Remote : " + pc.remoteDescription)
+        console.log("Local : " + pc.localDescription)
     }else{
         console.log("Not connected")
+        console.log("Remote : " + pc.remoteDescription)
+        console.log("Local : " + pc.localDescription)
     }
 }
 
