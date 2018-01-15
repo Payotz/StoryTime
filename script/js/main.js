@@ -23,13 +23,17 @@ request.onerror = function(){
 }
 request.send()
 
-
+card_list[999] = new Card(ctx,"Sample location","Sample location","img",canvas.width /2 , 100, 50,100)
 canvas.onmousemove = function(event){
   var loc = windowToCanvas(canvas,event.clientX,event.clientY)
   var number = 0
   ctx.clearRect(0,0,canvas.width,canvas.height)
   card_list[number].hover(loc.x,loc.y)
+  ctx.beginPath()
   card_list[number].draw()
+  ctx.rect(canvas.width /2 ,100,50,100)
+  ctx.stroke()
+  ctx.endPath()
 }
 
 canvas.onmousedown = function(event){
@@ -41,5 +45,16 @@ canvas.onmousedown = function(event){
 
 canvas.onmouseup = function(event){
   var loc = windowToCanvas(canvas,event.clientX,event.clientY)
+  if(card_list[0].dragged){
+    if(canvas.width/2 <= loc.x && loc.x <= canvas.width/2 + 50 &&
+      100 <= loc.y && loc.y <= 100 + 100){
+        card_list[0].x = canvas.width/2
+        card_list[0].y = 100
+        card_list[0].width = 50
+        card_list[0].height = 100
+        card_list[0].set = true
+      }
+  }
   card_list[0].dragged = false;
+  
 }
