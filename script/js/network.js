@@ -1,15 +1,14 @@
 var pc = new RTCPeerConnection({iceServers :[{urls:"stun:stun.l.google.com:19302"}]});
 var dataChannel = pc.createDataChannel("DataChannel")
 
-pc.onicecandidate = (function(event){
-    if (event.candidate)
-        return
-    window.alert("Send this invitation text:\n" + JSON.stringify(pc.localDescription))
-    pc.setRemoteDescription(JSON.parse(window.prompt("Insert answer text here : ")))
-});
-
 function initializeHost(){
     pc.createOffer().then(offer => pc.setLocalDescription(offer))
+    pc.onicecandidate = (function(event){
+        if (event.candidate)
+            return
+        window.alert("Send this invitation text:\n" + JSON.stringify(pc.localDescription))
+        pc.setRemoteDescription(JSON.parse(window.prompt("Insert answer text here : ")))
+    });
 }
 
 pc.onsignalingstatechange = function(event){

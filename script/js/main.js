@@ -47,7 +47,6 @@ canvas.onmousedown = function(event){
   if(card_list[0].contains(loc.x,loc.y)){
     card_list[0].dragged = true;
   }
-  send("Hello World")
 }
 
 canvas.onmouseup = function(event){
@@ -65,10 +64,10 @@ canvas.onmouseup = function(event){
   card_list[0].dragged = false; 
 }
 
-window.onload =(function(){
+window.onload =function(){
   if(window.confirm("Do you want to Host?")){
     initializeHost()
   }else{
     initializeMember(window.prompt("Insert invitation link here : "))
   }
-});
+};
